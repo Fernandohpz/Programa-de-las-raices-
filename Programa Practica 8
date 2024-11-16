@@ -1,0 +1,26 @@
+from math import sqrt
+print("¡Hola! Vamos a resolver una ecuación de segundo grado:")
+print(" ax² + bx + c = 0\n")
+a, b, c = [float(input(f'Dame el coeficiente {coef}: ')) for coef in ('a', 'b', 'c')]
+discriminante = b**2 - 4 * a * c
+if discriminante > 0:
+ # Raíces reales diferentes
+ raiz1 = (-b + sqrt(discriminante)) / (2 * a)
+ raiz2 = (-b - sqrt(discriminante)) / (2 * a)
+ print(f'Las soluciones son reales y diferentes: x₁ = {raiz1}, x₂ = {raiz2}')
+elif discriminante == 0:
+ # Raíces reales iguales
+ raiz = -b / (2 * a)
+ print(f'La única solución real es x = {raiz}')
+else:
+ # Raíces complejas conjugadas
+ parte_real = -b / (2 * a)
+ parte_imaginaria = sqrt(-discriminante) / (2 * a)
+ 
+ # Si la parte real es cero, el número es imaginario puro
+ if parte_real == 0:
+ print(f'Las soluciones son imaginarias puras: x₁ = {parte_imaginaria}i, x₂ 
+= {-parte_imaginaria}i')
+ else:
+ print(f'Las soluciones son complejas conjugadas: x₁ = {parte_real} + 
+{parte_imaginaria}i, x₂ = {parte_real} - {parte_imaginaria}i')
